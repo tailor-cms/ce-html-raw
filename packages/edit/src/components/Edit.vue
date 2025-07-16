@@ -20,7 +20,7 @@
 import { defineEmits, defineProps, onMounted, ref, useTemplateRef } from 'vue';
 import { Codemirror } from 'vue-codemirror';
 import debounce from 'lodash-es/debounce';
-import { Element } from 'tce-manifest';
+import { Element } from '@tailor-cms/ce-html-raw-manifest';
 import { html } from '@codemirror/lang-html';
 
 import sanitize from './sanitize';
