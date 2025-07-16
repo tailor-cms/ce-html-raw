@@ -1,3 +1,4 @@
+<!-- eslint-disable vuejs-accessibility/no-autofocus -->
 <template>
   <div ref="rootEl" class="tce-html-raw">
     <ElementPlaceholder
@@ -9,27 +10,38 @@
       active-icon="mdi-arrow-up"
       active-placeholder="Use toolbar to upload the file"
     />
+    <div v-else-if="showEditor">
+      <div class="my-2 text-body-2 font-weight-bold">Code</div>
+      <Codemirror
+        v-model="code"
+        :autofocus="isFocused"
+        :extensions="extensions"
+        :style="{
+          'min-height': '212px',
+          'max-height': '400px',
+          border: '1px solid #ddd',
+          'border-radius': '4px',
+        }"
+        :tab-size="2"
+        placeholder="Code goes here..."
+        indent-with-tab
+        @blur="save"
+        @change="onChange"
+        @paste="save"
+      />
+    </div>
     <div v-show="!showPlaceholder">
-      <div v-show="showEditor">
-        <div class="my-2 text-body-2 font-weight-bold">Code</div>
-        <Codemirror
-          v-model="code"
-          :extensions="extensions"
-          :style="{ 'min-height': '212px', 'max-height': '400px' }"
-          :tab-size="2"
-          placeholder="Code goes here..."
-          indent-with-tab
-          @blur="save"
-          @change="onChange"
-          @paste="save"
-        />
-      </div>
       <VExpandTransition>
         <div v-show="!isEmpty">
           <div v-if="isFocused" class="mt-5 mb-2 text-body-2 font-weight-bold">
             Preview
           </div>
-          <iframe ref="displayFrame" title="Preview" width="100%" />
+          <iframe
+            ref="displayFrame"
+            :class="{ active: isFocused }"
+            title="Preview"
+            width="100%"
+          />
         </div>
       </VExpandTransition>
     </div>
@@ -110,8 +122,14 @@ onMounted(() => {
 });
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 iframe {
-  border: 1px solid #ddd;
+  border: none;
+
+  &.active {
+    padding: 0.375rem 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
 }
 </style>

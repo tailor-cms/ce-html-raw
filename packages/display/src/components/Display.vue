@@ -30,6 +30,6 @@ onMounted(() => {
 
 <style scoped>
 iframe {
-  border: 1px solid #ddd;
+  border: none;
 }
 </style>
