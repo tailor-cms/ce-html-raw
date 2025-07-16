@@ -15,7 +15,7 @@
         <Codemirror
           v-model="code"
           :extensions="extensions"
-          :style="{ height: '300px' }"
+          :style="{ 'min-height': '212px', 'max-height': '400px' }"
           :tab-size="2"
           placeholder="Code goes here..."
           indent-with-tab
