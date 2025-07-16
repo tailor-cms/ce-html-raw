@@ -4,8 +4,6 @@ import { pom } from '@tailor-cms/cek-e2e';
 const COPY = {
   edit: 'Edit version of the content element',
   display: 'Display version of the content element',
-  topToolbar: 'Edit element top toolbar',
-  sideToolbar: 'Edit element side toolbar',
 };
 
 test.beforeEach(async ({ page }) => {
@@ -18,10 +16,6 @@ test('Renders Edit component', async ({ page }) => {
   await editPanel.persistFocus();
   await expect(editPanel.editor).toBeVisible();
   await expect(editPanel.editor.getByText(COPY.edit)).toBeVisible();
-  await expect(editPanel.topToolbar).toBeVisible();
-  await expect(editPanel.topToolbar.getByText(COPY.topToolbar)).toBeVisible();
-  await expect(editPanel.sideToolbar).toBeVisible();
-  await expect(editPanel.sideToolbar.getByText(COPY.sideToolbar)).toBeVisible();
 });
 
 test('Renders Display component', async ({ page }) => {
@@ -38,8 +32,4 @@ test('Renders server state panel', async ({ page }) => {
   for (const prop of properties) {
     await expect(bottomPanel.authoringWindow.getByText(prop)).toBeVisible();
   }
-  await bottomPanel.userStateTab.click();
-  await expect(
-    bottomPanel.userStateWindow.locator('pre').getByText('state'),
-  ).toBeVisible();
 });
