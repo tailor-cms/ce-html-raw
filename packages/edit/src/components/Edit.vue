@@ -73,4 +73,8 @@ onMounted(() => {
 });
 </script>
 
-<style scoped></style>
+<style scoped>
+iframe {
+  border: 1px solid #ddd;
+}
+</style>

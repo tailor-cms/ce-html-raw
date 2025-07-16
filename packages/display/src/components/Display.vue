@@ -1,7 +1,5 @@
 <template>
-  <div class="tce-root">
-    <iframe ref="displayFrame" class="mt-4" title="Preview" width="100%" />
-  </div>
+  <iframe ref="displayFrame" class="mt-4" title="Preview" width="100%" />
 </template>
 
 <script setup lang="ts">
@@ -31,8 +29,7 @@ onMounted(() => {
 </script>
 
 <style scoped>
-.tce-root {
-  font-size: 1rem;
-  font-family: Arial, Helvetica, sans-serif;
+iframe {
+  border: 1px solid #ddd;
 }
 </style>
