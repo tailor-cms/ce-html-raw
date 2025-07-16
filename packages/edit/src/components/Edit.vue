@@ -24,12 +24,14 @@
           @paste="save"
         />
       </div>
-      <div v-show="!isEmpty">
-        <div v-if="isFocused" class="mt-5 mb-2 text-body-2 font-weight-bold">
-          Preview
+      <VExpandTransition>
+        <div v-show="!isEmpty">
+          <div v-if="isFocused" class="mt-5 mb-2 text-body-2 font-weight-bold">
+            Preview
+          </div>
+          <iframe ref="displayFrame" title="Preview" width="100%" />
         </div>
-        <iframe ref="displayFrame" title="Preview" width="100%" />
-      </div>
+      </VExpandTransition>
     </div>
   </div>
 </template>
