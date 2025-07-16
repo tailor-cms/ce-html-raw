@@ -13,7 +13,7 @@ export const name = 'Raw HTML';
 // Function which inits element state (data property on the Content Element
 // entity)
 export const initState: DataInitializer = (): ElementData => ({
-  content: '<div>Click to edit the code... </div>',
+  content: '',
 });
 
 // Can be loaded from package.json
