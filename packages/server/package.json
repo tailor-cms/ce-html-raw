@@ -1,6 +1,6 @@
 {
   "name": "@tailor-cms/ce-html-raw-server",
-  "description": "Raw HTML editor component server",
+  "description": "Raw HTML editor component server package",
   "author": "Studion <info@gostudion.com> (https://github.com/tailor-cms)",
   "type": "module",
   "version": "0.0.1",
@@ -47,5 +47,8 @@
     "minify": false,
     "clean": false,
     "dts": true
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
