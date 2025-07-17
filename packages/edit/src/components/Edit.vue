@@ -123,6 +123,10 @@ onMounted(() => {
 </script>
 
 <style lang="scss" scoped>
+.tce-html-raw {
+  text-align: left;
+}
+
 iframe {
   border: none;
 
