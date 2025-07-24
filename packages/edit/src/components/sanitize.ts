@@ -55,7 +55,6 @@ export const allowedTags = [
   'small',
   'span',
   'strong',
-  'style',
   'sub',
   'sup',
   'time',
