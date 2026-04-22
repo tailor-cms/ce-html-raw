@@ -54,10 +54,10 @@
 <script lang="ts" setup>
 import { computed, onMounted, ref, useTemplateRef } from 'vue';
 import type { Element, ElementData } from '@tailor-cms/ce-html-raw-manifest';
-import manifest from '@tailor-cms/ce-html-raw-manifest';
 import { Codemirror } from 'vue-codemirror';
 import debounce from 'lodash-es/debounce';
 import { html } from '@codemirror/lang-html';
+import manifest from '@tailor-cms/ce-html-raw-manifest';
 
 import sanitize from './sanitize';
 
