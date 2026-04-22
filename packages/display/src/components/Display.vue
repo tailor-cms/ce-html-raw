@@ -6,8 +6,7 @@
 import { onMounted, useTemplateRef } from 'vue';
 import { Element } from '@tailor-cms/ce-html-raw-manifest';
 
-const props = defineProps<{ element: Element; userState: any }>();
-defineEmits(['interaction']);
+const props = defineProps<{ element: Element }>();
 
 const displayFrame = useTemplateRef('displayFrame');
 

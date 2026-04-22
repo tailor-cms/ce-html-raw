@@ -1,3 +1,5 @@
+import type { AiConfig } from '@tailor-cms/cek-common';
+
 import type {
   DataInitializer,
   ElementData,
@@ -28,21 +30,41 @@ const ui = {
   forceFullWidth: true,
 };
 
-export const mocks = {
-  displayContexts: [
-    { name: 'Test preset 1', data: { state: 'I have a value' } },
-    { name: 'Test preset 2', data: { state: 'I have a different value' } },
-  ],
+export const ai: AiConfig = {
+  Schema: {
+    type: 'json_schema',
+    name: 'ce_html_raw',
+    schema: {
+      type: 'object',
+      properties: {
+        content: { type: 'string' },
+      },
+      required: ['content'],
+      additionalProperties: false,
+    },
+  },
+  getPrompt: () => `
+    Generate a raw HTML snippet as an object with the following properties:
+    { "content": "" }
+    where:
+    - 'content' is a self-contained HTML snippet intended to be rendered inside
+      a sandboxed iframe. Do not include <style> tags, inline style attributes,
+      or <html>/<head>/<body> wrappers.
+  `,
+  processResponse: (val: any) => val,
 };
+
+export const isEmpty = (data: ElementData): boolean => !data.content;
 
 const manifest: ElementManifest = {
   type,
-  version: '1.0',
+  version,
   name,
   ssr: false,
   initState,
+  isEmpty,
   ui,
-  mocks,
+  ai,
 };
 
 export default manifest;

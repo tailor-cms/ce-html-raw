@@ -1,24 +1,32 @@
-# HTML RAW
+# Raw HTML
 
-Content Element for authoring Raw HTML content.
+Content element for authoring and rendering raw HTML content.
 
-## Usage
+**Type:** `HTML_RAW`
 
-Run
+## Data
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `content` | `string` | Sanitized HTML source |
+
+## Edit
+
+- CodeMirror HTML editor with syntax highlighting
+- Live preview in sandboxed iframe
+- Autosaves on change (debounced) and on blur/paste; content is sanitized via `sanitize-html`
+
+## Display
+
+- Renders sanitized HTML content in an iframe
+- Auto-adjusts iframe height to content
+
+## Development
 
 ```sh
-pnpm dev
-```
-
-Lint
-
-```sh
+pnpm dev     # Preview :8080 | Edit :8010 | Display :8020 | Server :8030
+pnpm build
 pnpm lint
-```
-
-Test
-
-```sh
 pnpm test
 ```
 
