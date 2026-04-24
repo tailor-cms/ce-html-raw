@@ -7,6 +7,7 @@ const ELEMENT_ID = 'test-html-raw-display';
 
 test.beforeEach(async ({ page }) => {
   await elementClient.reset(ELEMENT_ID);
+  await elementClient.resetState(ELEMENT_ID);
   await page.goto(`/?id=${ELEMENT_ID}`);
   await page.waitForLoadState('networkidle');
 });
@@ -45,8 +46,4 @@ test.describe('Content rendering', () => {
     await expect(display.contentFrame.locator('ul > li')).toHaveCount(2);
     await expect(display.contentFrame.locator('table td')).toHaveText('cell');
   });
-});
-
-test.afterAll(async () => {
-  await elementClient.reset(ELEMENT_ID);
 });

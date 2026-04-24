@@ -96,7 +96,3 @@ test.describe('Readonly mode', () => {
     ).toBeVisible();
   });
 });
-
-test.afterAll(async () => {
-  await elementClient.reset(ELEMENT_ID);
-});
