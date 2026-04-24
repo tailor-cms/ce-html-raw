@@ -1,5 +1,16 @@
 # @tailor-cms/ce-html-raw-server
 
+## 2.0.0
+
+### Major Changes
+
+- Migrated to CEK v2, added E2E tests.
+
+### Patch Changes
+
+- Updated dependencies
+  - @tailor-cms/ce-html-raw-manifest@2.0.0
+
 ## 0.0.3
 
 ### Patch Changes
