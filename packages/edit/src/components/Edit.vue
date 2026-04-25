@@ -1,7 +1,7 @@
 <!-- eslint-disable vuejs-accessibility/no-autofocus -->
 <template>
   <div ref="rootEl" class="tce-html-raw">
-    <ElementPlaceholder
+    <TailorElementPlaceholder
       v-if="showPlaceholder"
       :icon="manifest.ui.icon"
       :is-disabled="isReadonly"
@@ -11,7 +11,7 @@
       active-placeholder="Use toolbar to upload the file"
     />
     <div v-else-if="showEditor">
-      <div class="my-2 text-body-2 font-weight-bold">Code</div>
+      <div class="my-2 text-body-medium font-weight-bold">Code</div>
       <Codemirror
         v-model="code"
         :autofocus="isFocused"
@@ -33,7 +33,10 @@
     <div v-show="!showPlaceholder">
       <VExpandTransition>
         <div v-show="!isEmpty">
-          <div v-if="isFocused" class="mt-5 mb-2 text-body-2 font-weight-bold">
+          <div
+            v-if="isFocused"
+            class="mt-5 mb-2 text-body-medium font-weight-bold"
+          >
             Preview
           </div>
           <iframe
@@ -49,19 +52,12 @@
 </template>
 
 <script lang="ts" setup>
-import {
-  computed,
-  defineEmits,
-  defineProps,
-  onMounted,
-  ref,
-  useTemplateRef,
-} from 'vue';
-import manifest, { Element } from '@tailor-cms/ce-html-raw-manifest';
+import { computed, onMounted, ref, useTemplateRef } from 'vue';
+import type { Element, ElementData } from '@tailor-cms/ce-html-raw-manifest';
 import { Codemirror } from 'vue-codemirror';
 import debounce from 'lodash-es/debounce';
-import { ElementPlaceholder } from '@tailor-cms/core-components';
 import { html } from '@codemirror/lang-html';
+import manifest from '@tailor-cms/ce-html-raw-manifest';
 
 import sanitize from './sanitize';
 
@@ -71,7 +67,7 @@ const props = defineProps<{
   isReadonly: boolean;
   isFocused: boolean;
 }>();
-const emit = defineEmits(['save']);
+const emit = defineEmits<{ save: [data: ElementData] }>();
 
 const extensions = [html()];
 
