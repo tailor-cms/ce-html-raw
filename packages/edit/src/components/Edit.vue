@@ -52,7 +52,7 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, onMounted, ref, useTemplateRef } from 'vue';
+import { computed, onMounted, ref, useTemplateRef, watch } from 'vue';
 import type { Element, ElementData } from '@tailor-cms/ce-html-raw-manifest';
 import { Codemirror } from 'vue-codemirror';
 import debounce from 'lodash-es/debounce';
@@ -109,6 +109,15 @@ const onChange = (val: string) => {
   updateFrameContent(displayFrame.value, val);
   autosave();
 };
+
+watch(
+  () => props.element.data?.content,
+  (content = '') => {
+    if (content === code.value || content === sanitize(code.value)) return;
+    code.value = content;
+    updateFrameContent(displayFrame.value, content);
+  },
+);
 
 onMounted(() => {
   updateFrameContent(displayFrame.value, code.value);
