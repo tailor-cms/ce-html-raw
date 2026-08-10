@@ -2,6 +2,13 @@
   "name": "@tailor-cms/ce-html-raw-edit",
   "description": "Raw HTML edit component",
   "author": "Studion <info@gostudion.com> (https://github.com/tailor-cms)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tailor-cms/ce-html-raw.git",
+    "directory": "packages/edit"
+  },
+  "homepage": "https://github.com/tailor-cms/ce-html-raw#readme",
+  "bugs": "https://github.com/tailor-cms/ce-html-raw/issues",
   "type": "module",
   "version": "2.0.3",
   "exports": {

@@ -1,13 +1,13 @@
-# @tailor-cms/ce-html-raw-manifest
+# @tailor-cms/ce-html-raw-server
 
-Shared element definition for the **Raw HTML** content element in [Tailor CMS](https://github.com/tailor-cms/author).
+Server-side module for the **Raw HTML** content element in [Tailor CMS](https://github.com/tailor-cms/author).
 
-Declares the element type, display name, UI configuration and initial state. The authoring, end-user and server packages all build on it, so it is the only package that has to be understood to know what the element *is*.
+Provides the server half of the element: state initialisation, lifecycle hooks and any AI configuration, registered by the Tailor server runtime.
 
 ## Installation
 
 ```sh
-npm install @tailor-cms/ce-html-raw-manifest
+npm install @tailor-cms/ce-html-raw-server
 ```
 
 ## Usage
@@ -17,10 +17,7 @@ registry rather than imported directly, but the package can be consumed on its
 own:
 
 ```ts
-import manifest, { type ElementData } from '@tailor-cms/ce-html-raw-manifest';
-
-manifest.type;       // 'HTML_RAW'
-manifest.initState(); // initial element data
+import serverModule from '@tailor-cms/ce-html-raw-server';
 ```
 
 ## Element
