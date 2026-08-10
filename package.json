@@ -2,6 +2,7 @@
   "name": "@tailor-cms/ce-html-raw",
   "description": "Raw HTML editor content element",
   "author": "Studion <info@gostudion.com> (https://github.com/tailor-cms)",
+  "license": "MIT",
   "type": "module",
   "private": true,
   "exports": {
