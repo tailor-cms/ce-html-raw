@@ -6,18 +6,9 @@
   "type": "module",
   "private": true,
   "exports": {
-    "./edit": {
-      "import": "./packages/edit/dist/index.js",
-      "require": "./packages/edit/dist/index.cjs"
-    },
-    "./display": {
-      "import": "./packages/display/dist/index.js",
-      "require": "./packages/display/dist/index.cjs"
-    },
-    "./server": {
-      "import": "./packages/server/dist/index.js",
-      "require": "./packages/server/dist/index.cjs"
-    }
+    "./edit": "./packages/edit/dist/index.js",
+    "./display": "./packages/display/dist/index.js",
+    "./server": "./packages/server/dist/index.js"
   },
   "scripts": {
     "dev": "pnpm boot:cek",
@@ -32,12 +23,12 @@
   "bin": {},
   "devDependencies": {
     "@changesets/cli": "^3.0.0",
-    "@playwright/test": "^1.62.1",
-    "@tailor-cms/cek-e2e": "2.1.0",
-    "@tailor-cms/eslint-config": "2.1.0",
-    "@tailor-cms/tce-boot": "2.1.0",
-    "@types/node": "^26.2.0",
-    "dotenv": "^17.4.2",
+    "@playwright/test": "^1.63.0",
+    "@tailor-cms/cek-e2e": "2.3.1",
+    "@tailor-cms/eslint-config": "2.3.1",
+    "@tailor-cms/tce-boot": "2.3.1",
+    "@types/node": "^26.6.4",
+    "dotenv": "^18.0.5",
     "eslint": "^9.39.5",
     "prettier": "^3.9.6",
     "typescript": "^6.0.3"
@@ -45,7 +36,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "packageManager": "pnpm@11.17.0",
+  "packageManager": "pnpm@11.21.0",
   "engines": {
     "node": ">=26"
   }
