@@ -1,5 +1,16 @@
 # @tailor-cms/ce-html-raw-server
 
+## 3.0.0
+
+### Major Changes
+
+- Migrate to CEK 2.3.1. Packages are now ESM-only: CommonJS builds and the `main` / `require` entry points are removed, and the manifest and server packages emit `index.js` / `index.d.ts` instead of `index.mjs` / `index.d.mts`.
+
+### Patch Changes
+
+- Updated dependencies
+  - @tailor-cms/ce-html-raw-manifest@3.0.0
+
 ## 2.1.0
 
 ### Minor Changes
