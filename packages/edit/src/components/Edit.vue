@@ -7,8 +7,6 @@
       :is-disabled="isReadonly"
       :is-focused="isFocused"
       :name="`${manifest.name} component`"
-      active-icon="mdi-arrow-up"
-      active-placeholder="Use toolbar to upload the file"
     />
     <div v-else-if="showEditor">
       <div class="my-2 text-body-medium font-weight-bold">Code</div>
