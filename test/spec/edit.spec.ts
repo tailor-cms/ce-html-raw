@@ -56,8 +56,8 @@ test.describe('Sanitization', () => {
     const edit = new Edit(page);
     await edit.focus();
     await edit.typeCode('<script>alert(1)</script><p>safe</p>');
-    // Blur CodeMirror to trigger synchronous save → sanitize
-    await edit.codeInput.blur();
+    // Blur CodeMirror to trigger save → sanitize, wait for it to persist
+    await edit.blurAndWaitForSave();
     await page.reload({ waitUntil: 'networkidle' });
     await expect(
       edit.previewFrame.locator('p', { hasText: 'safe' }),
@@ -71,7 +71,7 @@ test.describe('Sanitization', () => {
     await edit.typeCode(
       '<iframe src="x"></iframe><style>body{color:red}</style><p>keep</p>',
     );
-    await edit.codeInput.blur();
+    await edit.blurAndWaitForSave();
     await page.reload({ waitUntil: 'networkidle' });
     await expect(edit.previewFrame.locator('iframe')).toHaveCount(0);
     await expect(edit.previewFrame.locator('style')).toHaveCount(0);
